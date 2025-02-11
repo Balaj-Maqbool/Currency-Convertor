@@ -1,91 +1,237 @@
-*{
-    margin: 0;    
+* {
+    margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
-.body{
-    background-color: #DCBF85;
+
+body {
+    background: #DCBF85;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    width: 100vw;
     font-family: Arial, Helvetica, sans-serif;
-    outline: none;
 }
-.container{
-    background: linear-gradient(45deg, white ,whitesmoke);
-    height: 60vh;
-    width: 50vh;
-    box-shadow:  20px 15px 0 rgba(0, 0, 0, 0.1);
-    border-radius:1rem ;
-    padding: 1.5rem;
-    font-size: 1rem;
-}
-h1{
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-   
 
-}
-.amount{
-    font-size: 1.1rem;
-    font-weight: bold;
-    position: relative;
-    top: 1rem;
-}
-#amt,.btn{
-    width: 90%;
-    height: 3rem;
-    border: 1px solid gray;
-    border-radius: 12px;
-    padding-left: 1rem;
-}
-.dropdown{
+/* Main Container */
+.app-container {
     display: flex;
-    justify-content:space-between;
+    justify-content: center;
     align-items: center;
-    gap: 1rem;
-    position: relative;
-    top: 6rem;
-    
     width: 100%;
 }
-.dropdown img{
-    max-width: 2.5rem;
+
+/* Converter Box */
+.converter-box {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-.btn{
-    display: inline-block;
-    margin: 11rem 0 0 1rem;
-    background-color: rgb(120, 21, 212);
-    color: aliceblue;
-    font-size: 1.2rem;
-    padding: 0.1rem;
-    text-align: center;
-    cursor: pointer;
+/* Hover Animation */
+.converter-box:hover {
+    transform: scale(1.05);
+    box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.15);
 }
-.btn:active{
-    scale: 1.1;
+
+/* Heading */
+h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
 }
-.msg{
-    position:relative;
-    top: 10rem;
-    margin-left: 1rem;
-    color:rgb(60, 0, 255);
-    font-size: 1.1rem;
-    font-weight: 500;
+
+/* Input Container */
+.input-container {
+    text-align: left;
+    margin-bottom: 1rem;
 }
-.select-container{
-    border: 1px solid lightgray;
-    border-radius: 0.7rem;
-    display: flex;
-    height: 2.5rem;
-    width: 6rem;
-    padding: 0.5rem;
-}
-select{
-    border: none;
-    font-size: 1.2rem;
-    background: transparent;
+
+label {
     font-size: 1rem;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    height: 2.5rem;
+    border: 1px solid gray;
+    border-radius: 8px;
+    padding: 0.5rem;
+    font-size: 1rem;
+    transition: border 0.3s ease-in-out;
+}
+
+/* Focus Effect */
+input:focus {
+    border: 2px solid #6a0dad;
+    outline: none;
+}
+
+/* Dropdown Container */
+.dropdown-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.currency-box {
+    text-align: left;
+    font-size: 1rem;
+}
+
+.select-wrapper {
+    display: flex;
+    align-items: center;
+    border: 1px solid lightgray;
+    border-radius: 8px;
+    padding: 0.5rem;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+.select-wrapper:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Currency Flag */
+img {
+    width: 2rem;
+    margin-right: 0.5rem;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Rotate Effect on Hover */
+img:hover {
+    transform: rotate(10deg);
+}
+
+/* Swap Icon */
+.swap-icon {
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Swap Icon Animation */
+.swap-icon:hover {
+    transform: rotate(180deg);
+}
+
+/* Exchange Rate Message */
+.exchange-message {
+    margin-top: 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: rgb(60, 0, 255);
+}
+
+/* Convert Button */
+.convert-btn {
+    margin-top: 1.5rem;
+    width: 100%;
+    height: 3rem;
+    border: none;
+    background-color: rgb(120, 21, 212);
+    color: white;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+/* Button Hover & Click Effects */
+.convert-btn:hover {
+    background-color: rgb(100, 10, 200);
+}
+
+.convert-btn:active {
+    transform: scale(0.95);
+}
+
+/* RESPONSIVENESS */
+
+/* Tablet Screens */
+@media (max-width: 768px) {
+    .converter-box {
+        width: 80%;
+        padding: 1.5rem;
+    }
+
+    h1 {
+        font-size: 1.3rem;
+    }
+
+    input, .convert-btn {
+        height: 2.2rem;
+    }
+
+    .exchange-message {
+        font-size: 0.9rem;
+    }
+}
+
+/* Small Tablet Screens */
+@media (max-width: 600px) {
+    .converter-box {
+        width: 90%;
+        padding: 1.2rem;
+    }
+
+    .dropdown-container {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .exchange-message {
+        font-size: 0.85rem;
+    }
+}
+
+/* Mobile Screens */
+@media (max-width: 480px) {
+    .converter-box {
+        width: 95%;
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 1.1rem;
+    }
+
+    input {
+        height: 2rem;
+    }
+
+    .convert-btn {
+        font-size: 1rem;
+    }
+
+    .exchange-message {
+        font-size: 0.8rem;
+    }
+}
+
+/* Extra Small Screens */
+@media (max-width: 360px) {
+    .converter-box {
+        width: 100%;
+        padding: 0.8rem;
+    }
+
+    h1 {
+        font-size: 1rem;
+    }
+
+    .convert-btn {
+        font-size: 0.9rem;
+    }
+
+    .exchange-message {
+        font-size: 0.75rem;
+    }
 }
